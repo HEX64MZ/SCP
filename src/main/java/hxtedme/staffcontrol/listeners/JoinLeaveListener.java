@@ -15,6 +15,9 @@ public class JoinLeaveListener {
     @Subscribe
     public void onPostLogin(PostLoginEvent event) {
         // Handle player join events here
+        if (plugin.getConfigManager().isSilentJoinEnabled()) {
+            // Logic for silent join
+        }
     }
 
     @Subscribe

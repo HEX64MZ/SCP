@@ -3,7 +3,7 @@ package hxtedme.staffcontrol.managers;
 import hxtedme.staffcontrol.StaffControlPlugin;
 import ninja.leaping.configurate.ConfigurationNode;
 import ninja.leaping.configurate.yaml.YAMLConfigurationLoader;
-import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -46,5 +46,13 @@ public class ConfigManager {
         } catch (IOException e) {
             plugin.getLogger().error("Failed to save config.yml", e);
         }
+    }
+
+    public boolean isSilentJoinEnabled() {
+        return config.getNode("settings", "silent-join").getBoolean(false);
+    }
+
+    public boolean isFakeLeaveEnabled() {
+        return config.getNode("settings", "fake-leave").getBoolean(false);
     }
 }

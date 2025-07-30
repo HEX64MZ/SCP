@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class StaffManager {
     private final Set<UUID> silentJoinUsers = new HashSet<>();
+    private final Set<UUID> vanishedUsers = new HashSet<>();
 
     public boolean toggleSilentJoin(UUID playerId) {
         if (silentJoinUsers.contains(playerId)) {
@@ -21,5 +22,17 @@ public class StaffManager {
         return silentJoinUsers.contains(playerId);
     }
 
-    // Other methods...
+    public boolean toggleVanish(UUID playerId) {
+        if (vanishedUsers.contains(playerId)) {
+            vanishedUsers.remove(playerId);
+            return false; // Vanish disabled
+        } else {
+            vanishedUsers.add(playerId);
+            return true; // Vanish enabled
+        }
+    }
+
+    public boolean isVanished(UUID playerId) {
+        return vanishedUsers.contains(playerId);
+    }
 }
