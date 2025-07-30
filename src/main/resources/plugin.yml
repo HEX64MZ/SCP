@@ -1,0 +1,14 @@
+name: StaffControl
+main: hxtedme.staffcontrol.StaffControlPlugin
+version: ${project.version}
+author: YourName
+description: Global staff control system for network-wide moderation
+commands:
+  togglepenalty:
+    description: Toggle penalty announcements globally
+    usage: /togglepenalty
+    permission: staffcontrol.command.penalty
+  staffchat:
+    description: Send messages to staff channel
+    usage: /staffchat [message]
+    permission: staffcontrol.command.staffchat
